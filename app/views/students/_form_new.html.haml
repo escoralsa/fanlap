@@ -1,0 +1,79 @@
+= form_for(@student) do |f|
+  - if @student.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@student.errors.count, "error")
+        prohibited this student from being saved:
+      %ul
+        - @student.errors.full_messages.each do |message|
+          %li= message
+  %form.form-inline{:role => "form"}
+    .col-sm-2
+      = f.label :st_number
+      = f.text_field :st_number
+    .col-sm-2
+      = f.label :last_name
+      = f.text_field :last_name
+    .col-sm-2
+      = f.label :slast_name
+      = f.text_field :slast_name
+    .col-sm-2
+      = f.label :names
+      = f.text_field :names
+    .col-sm-2
+      = f.label :birthdate
+      = f.date_select :birthdate, {:start_year => 1980}      
+    .col-sm-5
+      = f.label :gender
+      = f.select(:gender, options_for_select([['Femenino','F'],['Masculino','M']]),{}, {:class => "form-control"} )
+    .col-sm-2
+      = f.label :father_name
+      = f.text_field :father_name
+    .col-sm-2
+      = f.label :father_work
+      = f.text_field :father_work
+    .col-sm-2
+      = f.label :mother_name
+      = f.text_field :mother_name
+    .col-sm-2
+      = f.label :mother_work
+      = f.text_field :mother_work
+    .col-sm-2
+      = f.label :sibling
+      = f.text_field :sibling
+    .col-sm-2
+      = f.label :address
+      = f.text_area :address, {class: "form-control", rows: "2"}
+    .col-sm-2
+      = f.label :colonia
+      = f.text_field :colonia
+    .col-sm-2
+      = f.label :city
+      = f.text_field :city
+    .col-sm-2
+      = f.label :map_link
+      = f.text_field :map_link
+    .col-sm-2
+      = f.label :phone
+      = f.text_field :phone
+    .col-sm-2
+      = f.file_field :foto
+      = image_tag(@student.foto.thumb.url)
+    .col-sm-2
+      = f.label :shoe_size
+      = f.text_field :shoe_size
+    .col-sm-2
+      = f.label :tshirt_size
+      = f.select(:tshirt_size, options_for_select([['EX Small','XS'],['Small','S']]),{}, {:class => "form-control"} )
+    .col-sm-2
+      = f.label :email
+      = f.text_field :email
+    .col-sm-2
+      = f.label :profession
+      = f.text_field :profession
+    .col-sm-2
+      = f.label :notes
+      = f.text_area :notes, {class: "form-control", rows: "2"}
+
+  .actions
+    = f.submit

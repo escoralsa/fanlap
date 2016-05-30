@@ -1,0 +1,69 @@
+<%= form_for(@application) do |f| %>
+  <% if @application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h2>
+
+      <ul>
+      <% @application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_id %><br>
+    <%= f.select(:student_id, options_from_collection_for_select(Student.all, :id, :full_name, @application.student_id),{}, {:class => "form-control"} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :school_name %><br>
+    <%= f.text_field :school_name %>
+  </div>
+  <div class="field">
+    <%= f.label :school_year %><br>
+    <%= f.text_field :school_year %>
+  </div>
+  <div class="field">
+    <%= f.label :grade %><br>
+    <%= f.text_field :grade %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.select(:level, options_for_select([['Primaria','Primaria'],['Secundaria','Secundaria'],['Preparatoria','Preparatoria']]),{}, {:class => "form-control"} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br>
+    <%= f.text_field :score %>
+  </div>
+  <div class="field">
+    <%= f.label :other_scholarship %><br>
+    <%= f.check_box :other_scholarship %>
+  </div>
+  <div class="field">
+    <%= f.label :from %><br>
+    <%= f.text_field :from %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :approved %><br>
+    <%= f.check_box :approved %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :sponsor_id %><br>
+    <%= f.select(:sponsor_id, options_from_collection_for_select(Sponsor.all, :id, :name, @application.student_id),{}, {:class => "form-control"} ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

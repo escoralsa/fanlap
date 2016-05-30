@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @application.date %>
+</p>
+
+<p>
+  <strong>School name:</strong>
+  <%= @application.school_name %>
+</p>
+
+<p>
+  <strong>School year:</strong>
+  <%= @application.school_year %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @application.grade %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @application.score %>
+</p>
+
+<p>
+  <strong>Other scholarship:</strong>
+  <%= @application.other_scholarship %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @application.from %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @application.amount %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @application.approved %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @application.notes %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @application.student %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @application.sponsor %>
+</p>
+
+<%= link_to 'Edit', edit_application_path(@application) %> |
+<%= link_to 'Back', applications_path %>

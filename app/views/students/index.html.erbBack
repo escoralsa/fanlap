@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>St number</th>
+      <th>Last name</th>
+      <th>Slast name</th>
+      <th>Names</th>
+      <th>Birthdate</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Map link</th>
+      <th>Phone</th>
+      <th>Father name</th>
+      <th>Father work</th>
+      <th>Mother name</th>
+      <th>Mother work</th>
+      <th>Sibling</th>
+      <th>Colonia</th>
+      <th>City</th>
+      <th>Zip code</th>
+      <th>Foto</th>
+      <th>Shoe size</th>
+      <th>Tshirt size</th>
+      <th>Email</th>
+      <th>Profession</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.st_number %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.slast_name %></td>
+        <td><%= student.names %></td>
+        <td><%= student.birthdate %></td>
+        <td><%= student.gender %></td>
+        <td><%= student.address %></td>
+        <td><%= student.map_link %></td>
+        <td><%= student.phone %></td>
+        <td><%= student.father_name %></td>
+        <td><%= student.father_work %></td>
+        <td><%= student.mother_name %></td>
+        <td><%= student.mother_work %></td>
+        <td><%= student.sibling %></td>
+        <td><%= student.colonia %></td>
+        <td><%= student.city %></td>
+        <td><%= student.zip_code %></td>
+        <td><%= student.foto %></td>
+        <td><%= student.shoe_size %></td>
+        <td><%= student.tshirt_size %></td>
+        <td><%= student.email %></td>
+        <td><%= student.profession %></td>
+        <td><%= student.notes %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>

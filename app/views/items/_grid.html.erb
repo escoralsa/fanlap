@@ -1,0 +1,12 @@
+<%= grid(@items_grid) do |g|
+   
+  g.column  name:  'Name', attribute: 'name'
+  
+  g.column name:  'Description', attribute: 'description'
+  
+  g.column   do |item|
+    link_to('Edit', edit_item_path(item))
+  end
+end -%>
+
+<%= link_to 'New Item', new_item_path-%>

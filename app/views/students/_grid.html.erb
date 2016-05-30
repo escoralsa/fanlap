@@ -1,0 +1,18 @@
+<%= grid(@students_grid) do |g|
+
+  g.column name:  'Matricula', attribute: 'st_number'
+  
+  g.column name:  'Paterno', attribute: 'last_name'
+  
+  g.column  name:  'Materno', attribute: 'slast_name'
+     
+  g.column  name:  'Nombre(s)', attribute: 'names'
+  
+  g.column name:  'Fecha Nacimiento', attribute: 'birthdate'
+  
+  g.column   do |student|
+    link_to('Edit', edit_student_path(student))
+  end
+end -%>
+
+<%= link_to 'Nuevo Estudiante', new_student_path-%>

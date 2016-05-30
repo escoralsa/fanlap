@@ -1,0 +1,63 @@
+!!! 5
+%html
+  %head
+    %title FANLAP 
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+  %body
+    %nav.navbar.navbar-default.navbar-default{:role => "navigation"}
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => students_path('index')} FANLAP
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              =link_to 'New Student', new_student_path
+            %li
+              =link_to 'Students', students_path('index')
+            %li
+              =link_to 'New Application', new_application_path
+            %li
+              =link_to 'Applications', applications_path('index')
+            %li
+              =link_to 'Scores', scores_path('index')
+            %li
+              =link_to 'Expenses', expenses_path('index')
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Catalogs
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a=link_to 'Sponsor', sponsors_path('index')
+                %li
+                  %a=link_to 'Items', items_path('index')
+          .container-fluid
+            .row
+              = image_tag("header.jpg", alt: "Header", :height => "50", :width => "500", :class => "img-rounded")
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  %a{:href => "#"}
+                    %span.glyphicon.glyphicon-user
+                    = current_user.email
+                %li
+                  %a{:href => destroy_user_session_path}
+                    %span.glyphicon.glyphicon-log-in
+                    Cerrar Sesion
+
+    .container-fluid
+
+      =yield
+
+
+
+      %hr
+
+      %footer

@@ -1,0 +1,41 @@
+<%= grid(@applications_grid) do |g|
+	
+  g.column  name:  'Paterno', attribute: 'last_name',  assoc: :student
+  
+  g.column  name:  'Materno', attribute: 'slast_name',  assoc: :student
+   
+  g.column  name:  'Nombres', attribute: 'names',  assoc: :student
+
+  g.column name:  'Date', attribute: 'date'
+  
+  g.column name:  'School', attribute: 'school_name'
+  
+  g.column  name:  'School Year', attribute: 'school_year'
+     
+  g.column  name:  'Grade', attribute: 'grade'
+  
+  g.column  name:  'Level', attribute: 'level'
+  
+  g.column  name:  'Score', attribute: 'score'
+  
+  g.column  name:  'Grade', attribute: 'grade'
+  
+  g.column name:  'Other Scholarship', attribute: 'other_scholarship'
+  
+  g.column  name:  'From', attribute: 'from'
+  
+  g.column  name:  'Amount', attribute: 'amount'
+  
+  g.column  name:  'Approved', attribute: 'approved'
+  
+  g.column  name:  'Notes', attribute: 'notes'
+  
+  
+  
+  
+  g.column   do |application|
+    link_to('Edit', edit_application_path(application))
+  end
+end -%>
+
+<%= link_to 'New Application', new_application_path-%>

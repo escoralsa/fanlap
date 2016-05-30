@@ -1,0 +1,20 @@
+<%= grid(@expenses_grid) do |g|
+	
+  g.column  name:  'Paterno', attribute: 'last_name',  assoc: :student
+  
+  g.column  name:  'Materno', attribute: 'slast_name',  assoc: :student
+   
+  g.column  name:  'Nombres', attribute: 'names',  assoc: :student	
+   
+  g.column  name:  'Month', attribute: 'month'
+  
+   g.column  name:  'Item', attribute: 'name',  assoc: :item	
+  
+  g.column name:  'Amount', attribute: 'amount'
+  
+  g.column   do |expense|
+    link_to('Edit', edit_expense_path(expense))
+  end
+end -%>
+
+<%= link_to 'New Expense', new_expense_path-%>

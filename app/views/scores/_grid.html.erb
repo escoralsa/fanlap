@@ -1,0 +1,20 @@
+<%= grid(@scores_grid) do |g|
+   
+  g.column  name:  'Paterno', attribute: 'last_name', assoc: :student
+   
+  g.column  name:  'Usuario', attribute: 'slast_name', assoc: :student
+  
+  g.column  name:  'Usuario', attribute: 'names', assoc: :student
+  
+  g.column name:  'Month', attribute: 'month'
+  
+  g.column name:  'Year', attribute: 'year'
+  
+  g.column name:  'Score', attribute: 'score'
+  
+  g.column   do |score|
+    link_to('Edit', edit_score_path(score))
+  end
+end -%>
+
+<%= link_to 'New Score', new_score_path-%>
