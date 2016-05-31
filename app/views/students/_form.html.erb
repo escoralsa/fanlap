@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.file_field :foto %><br>
+    <%= image_tag(@student.foto.thumb.url) %><br>
+    <%= link_to "Ver", image_path(@student.foto), :target => "_blank" %><br>
+  </div>
+  <div class="field">
     <%= f.label :st_number %><br>
     <%= f.number_field :st_number %>
   </div>
@@ -78,10 +83,6 @@
   <div class="field">
     <%= f.label :zip_code %><br>
     <%= f.text_field :zip_code %>
-  </div>
-  <div class="field">
-    <%= f.label :foto %><br>
-    <%= f.text_field :foto %>
   </div>
   <div class="field">
     <%= f.label :shoe_size %><br>
