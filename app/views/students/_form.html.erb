@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.select(:gender, options_for_select([['Femenino','F'],['Masculino','M']], @student.gender),{}, {:class => "form-control"} ) %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
@@ -89,7 +89,7 @@
   </div>
   <div class="field">
     <%= f.label :tshirt_size %><br>
-    <%= f.text_field :tshirt_size %>
+    <%=  f.select(:tshirt_size, options_for_select([['EX Small','XS'],['Small','S'],['Medium','M'],['Large','L'],['X-Large','XL']], @student.tshirt_size),{}, {:class => "form-control"} ) %>
   </div>
   <div class="field">
     <%= f.label :email %><br>

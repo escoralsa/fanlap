@@ -15,6 +15,10 @@
   g.column   do |score|
     link_to('Edit', edit_score_path(score))
   end
+
+  g.column   do |score|
+    link_to('Delete',  score,  method: :delete, data: { confirm: 'Are you sure?' })
+  end
 end -%>
 
 <%= link_to 'New Score', new_score_path-%>
