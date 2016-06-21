@@ -11,6 +11,9 @@
     .col-sm-2
       = f.label :st_number
       = f.text_field :st_number
+    .col-sm-5
+      = f.label :typest
+      = f.select(:typest, options_for_select([['Estudiante','Estudiante'],['Foraneos','Foraneos'],['Comedor','Comedor'],['Desayunador','Desayunador'],['SSA','SSA']]),{}, {:class => "form-control"} )
     .col-sm-2
       = f.label :last_name
       = f.text_field :last_name

@@ -1,5 +1,13 @@
 <%= grid(@applications_grid) do |g|
-	
+
+  @now = Date.today
+
+  g.column name: 'Edad', attribute: 'birthdate', filter_type: :rails_time_helper ,  assoc: :student do |application|
+   @age = ((@now - application.student.birthdate)/365).to_i
+    end
+
+  g.column  name:  'Sexo', attribute: 'gender',  assoc: :student
+
   g.column  name:  'Paterno', attribute: 'last_name',  assoc: :student
   
   g.column  name:  'Materno', attribute: 'slast_name',  assoc: :student
@@ -27,6 +35,8 @@
   g.column  name:  'Amount', attribute: 'amount'
   
   g.column  name:  'Approved', attribute: 'approved'
+
+  g.column  name:  'Typesc', attribute: 'typesc'
   
   g.column  name:  'Notes', attribute: 'notes'
   

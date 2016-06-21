@@ -7,9 +7,15 @@
   g.column  name:  'Materno', attribute: 'slast_name'
      
   g.column  name:  'Nombre(s)', attribute: 'names'
-  
-  g.column name:  'Fecha Nacimiento', attribute: 'birthdate'
-  
+
+  @now = Date.today
+
+  g.column name: 'Edad', attribute: 'birthdate', filter_type: :rails_time_helper  do |student|
+    @age = ((@now - student.birthdate)/365).to_i
+  end
+
+  g.column  name:  'Typest', attribute: 'typest'
+
   g.column   do |student|
     link_to('Edit', edit_student_path(student))
   end

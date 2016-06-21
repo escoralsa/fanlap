@@ -56,6 +56,14 @@
     <%= f.check_box :approved %>
   </div>
   <div class="field">
+    <%= f.label :typesc %><br>
+    <%= f.select(:typesc, options_for_select([['Media','Media'],['Completa','Completa']]),{}, {:class => "form-control"} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :hours %><br>
+    <%= f.text_field :hours %>
+  </div>
+  <div class="field">
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </div>

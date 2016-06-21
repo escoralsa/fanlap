@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524091930) do
+ActiveRecord::Schema.define(version: 20160621224234) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "date"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20160524091930) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "level",             limit: 255
+    t.integer  "hours",             limit: 4
+    t.string   "typesc",            limit: 255
   end
 
   add_index "applications", ["sponsor_id"], name: "index_applications_on_sponsor_id", using: :btree
@@ -180,6 +182,8 @@ ActiveRecord::Schema.define(version: 20160524091930) do
     t.string   "notes",       limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "type",        limit: 255
+    t.string   "typest",      limit: 255
   end
 
   create_table "tickets", force: :cascade do |t|

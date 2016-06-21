@@ -21,6 +21,10 @@
     <%= f.number_field :st_number %>
   </div>
   <div class="field">
+    <%= f.label :typest %><br>
+    <%= f.select(:typest, options_for_select([['Estudiante','Estudiante'],['Foraneos','Foraneos'],['Comedor','Comedor'],['Desayunador','Desayunador'],['SSA','SSA']]),{}, {:class => "form-control"} ) %>
+  </div>
+  <div class="field">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>

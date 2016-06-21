@@ -4,9 +4,20 @@ class ApplicationsController < ApplicationController
 
   # GET /applications
   def index
-     @applications_grid = initialize_grid(Application, order: 'id')
-  end
+   #  @applications_grid = initialize_grid(Application, order: 'id')
 
+     @applications_grid = initialize_grid(Application,
+                                          order: 'students.last_name',
+                                          name: 'grid',
+                                          enable_export_to_csv: true,
+                                          csv_field_separator: ';',
+                                          csv_file_name: 'Applications'
+     )
+
+
+     export_grid_if_requested('grid' => 'grid')
+
+  end
   # GET /applications/1
   def show
   end
@@ -54,6 +65,6 @@ class ApplicationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def application_params
-      params.require(:application).permit(:date, :school_name, :school_year, :grade, :level, :score, :other_scholarship, :from, :amount, :approved, :notes, :student_id, :sponsor_id)
+      params.require(:application).permit(:date, :typesc, :school_name, :school_year, :grade, :level, :score, :other_scholarship, :from, :amount, :approved, :notes, :student_id, :sponsor_id)
     end
 end
